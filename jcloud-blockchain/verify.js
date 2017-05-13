@@ -17,7 +17,7 @@ var paramsCreateChannel = {
     params: {
         type: 1,
         channel: {
-            name: 'mychannel',
+            name: 'supplychain',
             version: 'v0'
         }
     },
