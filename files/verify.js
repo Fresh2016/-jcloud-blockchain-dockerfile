@@ -11,6 +11,8 @@ var queryClient = require('./app/client/query.js');
 var manager = require('./app/manage/create-client.js');
 var interClient = require('./app/manage/param-interceptor.js');
 
+//process.env['HFC_LOGGING'] = '{"error": "console", "warn": "console", "debug":"console", "info": "console"}';
+process.env['HFC_LOGGING'] = '{"error": "/dev/null", "warn": "/dev/null", "debug":"/dev/null", "info": "console"}';
 
 var paramsCreateChannel = {
     rpctime: '2017-04-17 10:00:00',
@@ -465,6 +467,7 @@ function testOperation(opr_num_list) {
                 return 'Skipped';
             }
 
+            /*
         }).then((result) => {
             console.log('TESTAPP: queryTransaction result %s', JSON.stringify(result));
             if (isToDo('query', opr_num_list)) {
@@ -473,16 +476,20 @@ function testOperation(opr_num_list) {
             } else {
                 return 'Skipped';
             }
+            */
 
-            //	}).then((result) => {
-            //		console.log('TESTAPP: queryTransactionHistory result %s', JSON.stringify(result));
-            //		if (isToDo('query', opr_num_list)) {
-            //			params = manager.??// FIXME:should be some filter interface from manager
-            //			return queryClient.isTransactionSucceed(response[0].TransactionId);
-            //		} else {
-            //			return 'Skipped';
-            //		}
+            /*
+        }).then((result) => {
+            console.log('TESTAPP: queryTransactionHistory result %s', JSON.stringify(result));
+            if (isToDo('query', opr_num_list)) {
+                params = manager. ? ? // FIXME:should be some filter interface from manager
+                    return queryClient.isTransactionSucceed(response[0].TransactionId);
+            } else {
+                return 'Skipped';
+            }
+            */
 
+            /*
         }).then((result) => {
             console.log('TESTAPP: isTransactionSucceed result %s', JSON.stringify(result));
             if (isToDo('query', opr_num_list)) {
@@ -491,7 +498,9 @@ function testOperation(opr_num_list) {
             } else {
                 return 'Skipped';
             }
+            */
 
+            /*
         }).then((result) => {
             console.log('TESTAPP: queryPeers result %s', JSON.stringify(result));
             if (isToDo('query', opr_num_list)) {
@@ -500,6 +509,7 @@ function testOperation(opr_num_list) {
             } else {
                 return 'Skipped';
             }
+            */
 
         }).then((result) => {
             console.log('TESTAPP: queryOrderers result %s', JSON.stringify(result));
@@ -510,6 +520,7 @@ function testOperation(opr_num_list) {
                 return 'Skipped';
             }
 
+            /*
         }).then((result) => {
             console.log('TESTAPP: queryBlocks number result %s', JSON.stringify(result));
             if (isToDo('query', opr_num_list)) {
@@ -518,10 +529,19 @@ function testOperation(opr_num_list) {
             } else {
                 return 'Skipped';
             }
+            */
 
         }).then((result) => {
-            console.log('TESTAPP: queryBlocks info result %s', JSON.stringify(result));
+            //console.log('TESTAPP: queryBlocks info result %s', JSON.stringify(result));
+            console.log('TESTAPP: queryBlocks number result %s', JSON.stringify(result));
+
+            if ('Skipped' != result) {
+                console.log('CURRENT_BLOCK_NUMBER:%s', result.message.Payloads.low);
+            }
+
             console.log('### shiying is aaa ###');
+            // FORCE to exit
+            process.exit();
 
         }).catch((err) => {
             console.log('Quit with err: %s', err);

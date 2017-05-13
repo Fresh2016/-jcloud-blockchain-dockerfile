@@ -156,7 +156,7 @@ function setChannel(req, res) {
                     reqChannelname = reqChannelname.split("?")[0];
                 }
             }
-            logger.error('reqChannelname is -- %s', reqChannelname);
+            logger.info('reqChannelname is -- %s', reqChannelname);
 
             //创建逻辑
             req.query.isCreate = true;
