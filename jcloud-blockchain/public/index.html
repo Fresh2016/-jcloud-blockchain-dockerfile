@@ -1,0 +1,88 @@
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="jcloud-blockchain" lang="zh-CN">
+<head>
+	<!-- META -->
+	<meta charset="utf-8">
+	<!-- Optimize mobile viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>JCloud Blockchain App</title>
+
+	<!-- SCROLLS -->
+	<!-- load bootstrap -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+	<!-- base style -->
+	<style>
+		html 					{ overflow-y: scroll; }
+		monitor-form 	 		{ margin-bottom: 50px; }
+		query-form 				{ margin-bottom: 50px; }
+		transaction-form 	 	{ margin-bottom: 50px; }
+		body					{ -webkit-font-smoothing: antialiased;
+								  background-color: #fff;
+								  font: 18px/1.5 Tahoma, Hiragino Sans GB, Arial, Microsoft YaHei, Sans-serif;
+								  color: #000 }
+		div						{ word-break: break-all; }
+
+	</style>
+
+	<!-- SPELLS -->
+	<script src="https://code.angularjs.org/1.2.16/angular.min.js"></script><!-- load angular -->
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	
+	<!-- load up controllers and services -->
+	<script src="js/controllers/monitorCtrl.js"></script>
+	<script src="js/controllers/queryCtrl.js"></script>
+	<script src="js/controllers/transactionCtrl.js"></script>
+	<script src="js/services/monitorSrvc.js"></script>
+	<script src="js/services/querySrvc.js"></script>
+	<script src="js/services/transactionSrvc.js"></script>
+	
+	<!-- load main application -->
+	<script src="js/core.js"></script>
+
+</head>
+<!-- SET THE CONTROLLER -->
+<!--body ng-controller="queryController"-->
+<body>
+
+	<!-- RESPONSIVE HEADER -->
+	<div class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">京东区块链</a>
+			</div>
+			<div class="navbar-collapse collapse in">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#" ng-click="viewType='query'">查询</a></li>
+					<li class="active"><a href="#" ng-click="viewType='transaction'">交易</a></li>
+					<li class="active"><a href="#" ng-click="viewType='monitor'">监控</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div><!--/.container -->
+	</div>
+	
+	<!-- MAJOR CONTAINER -->
+	<div class="container">
+		
+		<div class="view" ng-switch on="viewType">
+			<div ng-switch-when="query"><div ng-include="'views/query-view.html'"></div></div>
+			<div ng-switch-when="transaction"><div ng-include="'views/transaction-view.html'"></div></div>
+			<div ng-switch-when="monitor"><div ng-include="'views/monitor-view.html'"></div></div>
+			<div ng-switch-default><div ng-include="'views/query-view.html'"></div></div>
+		</div>
+
+		<div class="text-center text-muted">
+			<p>A blockchain demo by <a href="http://www.jcloud.com/">JCloud</a>.</p>
+		</div>
+
+	</div><!--MAJOR CONTAINER -->
+
+</body>
+</html>

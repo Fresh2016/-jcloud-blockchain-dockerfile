@@ -1,0 +1,22 @@
+<div class="transaction-view" ng-controller="transactionController">
+
+	<!-- FORM TO ADD NEW TRADE -->
+	<div id="transaction-form" class="row">
+		<div class="col-sm-12 col-xs-8 text-center">
+			<form>
+				<div class="form-group">
+					<!-- BIND THIS VALUE TO formData.traceInfo IN ANGULAR -->
+					<input type="text" class="form-control input-lg text-center" placeholder="Insert your encrypted TraceInfo here" ng-model="traceInfo">
+				</div>
+
+				<!-- addNewTrade() WILL CREATE NEW AMOUNTS -->
+				<button type="submit" class="btn btn-primary btn-lg" ng-click="post()">记入交易</button>
+			</form>
+		</div>
+	</div>
+			
+	<div class="alert not-number alert-danger text-center fade in" role="alert" style="display: none;">
+		Input traceInfo should not be empty!
+	</div>
+	
+</div>

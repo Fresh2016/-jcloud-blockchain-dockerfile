@@ -1,0 +1,82 @@
+<div class="query-view" ng-controller="queryController">
+
+	<!-- BLOCK INFOMATION -->
+	<div class="jumbotron text-left">
+		<div class="form-group">
+			<div class="row">
+				<div class="col-sm-4 col-xs-6">当前区块号码：</div>
+				<div class="col-sm-8 col-xs-8">
+					<span class="label label-success" style="">
+						{{ blockNumber }} 
+					</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4 col-xs-6">商品SKU：</div>
+				<div class="col-sm-8 col-xs-8">
+					<span class="label label-success" style="">
+						{{ sku }} 
+					</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4 col-xs-6">交易时间：</div>
+				<div class="col-sm-8 col-xs-8">
+					<span class="label label-success" style="">
+						{{ tradeDate }} 
+					</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4 col-xs-6">溯源信息：</div>
+				<div class="col-sm-8 col-xs-8">
+					<span class="label label-info" style="">
+						{{ traceInfo }} 
+					</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4 col-xs-6">当前哈希值：</div>
+				<div class="col-sm-8 col-xs-8">
+					<p>
+	          			<small> {{ currentBlockHash | json }} </small>
+	        		</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4 col-xs-6">上一个哈希值：</div>
+				<div class="col-sm-8 col-xs-8">
+					<p>
+	          			<small> {{ previousBlockHash | json }} </small>
+	        		</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="query-form" class="row">
+		<div class="col-sm-12 col-xs-8 text-center">
+			<form>
+				<div class="form-group">
+					<!-- BIND THIS VALUE TO formData.transactionId IN ANGULAR -->
+					<input type="text" class="form-control input-lg text-center" placeholder="Insert your encrypted TraceInfo here" ng-model="transactionId">
+				</div>
+
+
+				<!-- queryBlock() WILL CREATE NEW AMOUNTS -->
+				<button type="submit" class="btn btn-info btn-lg" ng-click="query()">账本查询</button>
+			</form>
+		</div>
+
+
+		<!-- <div class="col-sm-12 col-xs-8 text-center">
+			<form>
+				<!-- BIND THIS VALUE TO formData.traceInfo IN ANGULAR -->
+		<!-- 		<input type="text" class="form-control input-lg text-center" placeholder="Input Transaction ID here, or leave empty for latest trade" ng-model="transactionId">
+
+				<!-- queryBlock() WILL CREATE NEW AMOUNTS -->
+		<!-- 		<button type="reset" class="btn btn-info btn-lg" ng-click="query()">账本查询</button>
+			</form>
+		</div> -->
+	</div>
+</div>

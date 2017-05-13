@@ -17,9 +17,9 @@ RUN         apk update &&                                \
             npm install -g node-gyp &&                   \
             npm install -g hashtable &&                  \
             npm install &&                               \
-            chmod +x server.js &&                        \
+            chmod +x standalone-server.js &&             \
             chmod +x verify.js &&                        \
             rm -rf /var/cache/apk/*
 EXPOSE      ${SERVER_LISTEN_PORT}
 WORKDIR     /jcloud-blockchain
-ENTRYPOINT  ["/jcloud-blockchain/server.js"]
+ENTRYPOINT  ["/jcloud-blockchain/standalone-server.js"]
