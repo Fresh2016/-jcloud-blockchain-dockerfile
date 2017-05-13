@@ -8,7 +8,7 @@ ENV         SERVER_LISTEN_PORT=${SERVER_LISTEN_PORT:-'8081'} \
             NODE_VERSION=6.10.3
 COPY        jcloud-blockchain /jcloud-blockchain
 RUN         apk update &&                                \
-            apk --no-cache add bash git vim paxctl python-dev bzip2 libc6-compat &&    \
+            apk --no-cache add bash git vim make gcc g++ python paxctl gnupg python-dev bzip2 libc6-compat &&    \
             cd /jcloud-blockchain &&                     \
             npm build &&                                 \
             npm install -g es6-promise-pool &&           \
